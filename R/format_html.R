@@ -15,7 +15,7 @@
 #'
 #' @export
 format_html <- 
-function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline = NULL) {
+function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline = NULL, title = NULL) {
     
     out_open <- rep('<span style="', pmax(length(background), length(color)))
     out_close <- rep("</span>", pmax(length(background), length(color)))
@@ -37,7 +37,11 @@ function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline 
         out_open <- paste0(out_open, "text-decoration; underline")
     }
     
-    out_open <- paste0(out_open, '">')
+    if (!is.null(title)) {
+        out_open <- paste0(out_open, '"; title="', title,'">')
+    } else {
+        out_open <- paste0(out_open, '">')
+    }
     
     # return two-element list containing 'open' and 'closing' character strings to produce formatting around each string
     list(open = out_open,
