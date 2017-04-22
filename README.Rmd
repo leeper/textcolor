@@ -1,0 +1,28 @@
+# Summarize Text Models by Visualizing a Source Text
+
+**textcolor** is a package for something...
+
+```{r}
+library("textcolor")
+
+# do something
+```
+
+
+## Installation
+
+[![CRAN](https://www.r-pkg.org/badges/version/textcolor)](https://cran.r-project.org/package=textcolor)
+![Downloads](https://cranlogs.r-pkg.org/badges/textcolor)
+[![Travis Build Status](https://travis-ci.org/leeper/textcolor.png?branch=master)](https://travis-ci.org/leeper/textcolor)
+[![Appveyor Build Status](https://ci.appveyor.com/api/projects/status/PROJECTNUMBER?svg=true)](https://ci.appveyor.com/project/leeper/textcolor)
+[![codecov.io](https://codecov.io/github/leeper/textcolor/coverage.svg?branch=master)](https://codecov.io/github/leeper/textcolor?branch=master)
+
+This package is not yet on CRAN. To install the latest development version you can install from Github:
+
+```R
+if (!require("ghit")) {
+    install.packages("ghit")
+}
+ghit::install_github("leeper/textcolor")
+```
+

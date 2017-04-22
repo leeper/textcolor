@@ -1,0 +1,23 @@
+Package: textcolor
+Type: Package
+Title: Summarize Text Models by Visualizing a Source Text
+Version: 0.1.1
+Date: 2016-04-21
+Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
+                    email = "thosjleeper@gmail.com"),
+             person("Matthew", "Denny", role = c("aut")),
+             person("Brandon", "Stewart", role = c("aut")),
+             person("Will", "Lowe", role = c("aut")),
+             person("Arthur", "Spirling", role = c("aut"))
+             )
+Description: Something something
+License: MIT + file LICENSE
+URL: https://github.com/leeper/textcolor
+BugReports: https://github.com/leeper/textcolor/issues
+Imports:
+    stringi,
+    crayon
+Suggests:
+    testthat,
+    stm
+RoxygenNote: 6.0.1

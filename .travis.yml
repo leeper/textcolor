@@ -1,0 +1,8 @@
+language: r
+sudo: false
+cache: packages
+r_packages:
+- knitr
+- covr
+after_success:
+- Rscript -e 'library("covr");codecov()'
