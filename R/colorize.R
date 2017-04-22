@@ -78,6 +78,9 @@ function(data,
     format <- match.arg(format)
     if (format == "html") {
         # make open/close formats
+        
+        ## TODO: colors are html colors!!!
+        
         fmt <- format_html(color = color, background = background, bold = bold, italic = italic, underline = underline)
         
         # apply them
