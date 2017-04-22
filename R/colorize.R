@@ -18,11 +18,12 @@
 #' @param \dots TBD
 #' @details
 #' LaTeX support requires the \samp{xcolor} package in the document header.
-#' 
+#'
 #' @examples
 #' data("billSection", package = "textcolor")
 #' colorize(test_data, tokens = "terms", background = "class", source = document)
 #' 
+#'
 #' @import stringi
 #' @import viridis
 #' @import crayon
@@ -82,7 +83,6 @@ function(data,
         underline <- data[[underline]]
     }
     
-    
     # determine format
     format <- match.arg(format)
     if (format == "html") {
@@ -116,18 +116,13 @@ function(data,
         # apply them
         out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
         
-        if (!isTRUE(snippet)) {
-            # put into complete document
-            
-        }
-        
-    } else if (format == "shiny") {
-        stop("format = 'shiny' not yet supported")
-    } 
-    
+    }
+
     return(out)
 }
 
 #' @rdname colorize
 #' @export
 colorise <- colorize
+
+
