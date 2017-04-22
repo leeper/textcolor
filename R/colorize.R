@@ -86,7 +86,7 @@ function(data,
         fmt <- format_html(color = color, background = background, bold = bold, italic = italic, underline = underline)
         
         # apply them
-        out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
+        out <- apply_formatting(source, tokens, open = fmt$open, tokens = tokens, close = fmt$close)
         
         # TODO: handle paragraphs!
         
@@ -104,7 +104,7 @@ function(data,
         #print(fmt)
         
         # apply them
-        out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
+        out <- apply_formatting(source, tokens, open = fmt$open, tokens = tokens, close = fmt$close)
         
         # TODO: handle paragraphs!
         
@@ -118,7 +118,7 @@ function(data,
         fmt <- format_console(color = color, background = background, bold = bold, italic = italic, underline = underline)
         
         # apply them
-        out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
+        out <- apply_formatting(source, tokens, open = fmt$open, tokens = tokens, close = fmt$close)
         
     }
 
