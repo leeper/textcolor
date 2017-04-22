@@ -15,15 +15,15 @@
 #' @param \dots TBD
 #' @details
 #' LaTeX support requires the \samp{xcolor} package in the document header.
-#' 
+#'
 #' @examples
-#' 
+#'
 #' @import stringi
 #' @import crayon
 #' @export
-colorize <- 
-function(data, 
-         text, 
+colorize <-
+function(data,
+         text,
          color,
          background,
          bold,
@@ -33,48 +33,50 @@ function(data,
          snippet = TRUE,
          ...) {
 
-    
+
     # stri_replace_all_fixed(string, pattern, replacement)
     # stri_replace_all_regex(string, pattern, replacement)
-    
+
     # determine format
     format <- mathch.arg(format)
     if (format == "html") {
         out <- text
-        
+
         # <span class="something">text</span>
-        
+
         if (isTRUE(snippet)) {
             # snippet
-            
-            
+
+
         } else {
             # complete document
         }
-        
-        
+
+
     } else if (format == "latex") {
         out <- text
-        
+
         # \colorbox{blue!30}{text}
         # \textcolor{blue!30}{text}
-        
-        
+
+
         if (isTRUE(snippet)) {
             # snippet
         } else {
             # complete document
         }
-        
+
     } else if (format == "shiny") {
         out <- text
     } else if (format == "console") {
         out <- text
     }
-    
+
     return(out)
 }
 
 #' @rdname colorize
 #' @export
 colorise <- colorize
+
+
