@@ -21,7 +21,7 @@
 #'
 #' @examples
 #' data("billSection", package = "textcolor")
-#' colorize(test_data, tokens = "terms", background = "class", source = document)
+#' colorize(test_data[!test_data$terms %in% c("a", "an"),], tokens = "terms", background = "class", source = document)
 #' 
 #'
 #' @import stringi
@@ -39,31 +39,18 @@ function(data,
          underline = NULL,
          format = c("html", "latex", "shiny", "console"),  # console == crayon
          snippet = TRUE,
-         color_palette = "black",
-         background_palette = NULL,
          ...) {
-
+         
     # extract text column as vector
     tokens <- data[[tokens]]
     
     # construct palettes if needed
-    background <- data[[background]]
-    if (is.null(background_palette)) {
-        background <- viridis::viridis(n = length(background))
-    }
-    if (!is.null(color_palette)) {
-        color_palette <- viridis::viridis(length(tokens))
-    } else if (length(color_palette) != length(tokens)) {
-        color_palette <- rep(color_palette, length.out = length(tokens))
-    }
-    if (!is.null(color)) {
-        color <- data[[color]]
-        if (length(color_palette) != length(color)) {
-            stop("color palette is not the right length")
-        }
-    } else {
-        color <- color_palette
-    }
+    #background <- viridis::viridis(n = length(tokens))
+    background <- substr(grDevices::rainbow(n = length(tokens)), 1, 7)
+    #color <- viridis::viridis(n = length(tokens))
+    #color <- substr(grDevices::rainbow(n = length(tokens)), 1, 7)
+    color <- rep("black", length(tokens))
+    
     if (!is.null(bold)) {
         bold <- data[[bold]]
     }

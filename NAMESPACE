@@ -2,3 +2,6 @@
 
 export(colorise)
 export(colorize)
+import(crayon)
+import(stringi)
+import(viridis)

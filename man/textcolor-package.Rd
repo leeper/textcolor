@@ -6,10 +6,10 @@
 \alias{textcolor}
 \title{textcolor}
 \description{
-A Cloudyr Project Package
+A package
 }
 \details{
-This is a template package for the cloudyr project
+This is does something
 }
 \author{
 Thomas J. Leeper <thosjleeper@gmail.com>
