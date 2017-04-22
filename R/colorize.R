@@ -40,25 +40,16 @@ function(data,
          format = c("html", "latex", "shiny", "console"),  # console == crayon
          snippet = TRUE,
          color_palette = "black",
-         background_palette = viridis::viridis(nrow(data)),
+         background_palette = NULL,
          ...) {
 
     # extract text column as vector
     tokens <- data[[tokens]]
     
     # construct palettes if needed
-    if (!is.null(background_palette)) {
-        background_palette <- viridis::viridis(length(tokens))
-    } else if (length(background_palette) != length(tokens)) {
-        background_palette <- rep(background_palette, length.out = length(tokens))
-    }
-    if (!is.null(background)) {
-        background <- data[[background]]
-        if (length(background_palette) != length(background)) {
-            stop("background palette is not the right length")
-        } 
-    } else {
-        background <- background_palette
+    background <- data[[background]]
+    if (is.null(background_palette)) {
+        background <- viridis::viridis(n = length(background))
     }
     if (!is.null(color_palette)) {
         color_palette <- viridis::viridis(length(tokens))
