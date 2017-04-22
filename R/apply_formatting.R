@@ -12,7 +12,7 @@ function(source, pattern, replacement) {
     }
     out <- source
     for (i in seq_along(pattern)) {
-        out <- stringi::stri_replace_all_fixed(out, pattern[i], replacement[i])
+        out <- stringi::stri_replace_all_regex(out, paste0("\\b", pattern[i], "\\b"), replacement[i])
     }
     return(out)
 }

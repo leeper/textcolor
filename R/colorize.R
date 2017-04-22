@@ -43,11 +43,30 @@ function(data,
     tokens <- data[[tokens]]
     
     # construct palettes if needed
-    #background <- viridis::viridis(n = length(tokens))
-    background <- substr(grDevices::rainbow(n = length(tokens)), 1, 7)
-    #color <- viridis::viridis(n = length(tokens))
-    #color <- substr(grDevices::rainbow(n = length(tokens)), 1, 7)
-    color <- rep("black", length(tokens))
+    if (is.null(background)) {
+        background <- rep("black", nrow(data))
+    } else {
+        #background <- viridis::viridis(n = length(tokens))
+        u <- unique(data[[background]])
+        pal <- substr(grDevices::rainbow(n = length(u)), 1, 7)
+        tmp <- character(nrow(data))
+        for (i in seq_along(u)) {
+            tmp[data[[background]] == u[i]] <- pal[i]
+        }
+        background <- tmp
+    }
+    if (is.null(color)) {
+        color <- rep("white", nrow(data))
+    } else {
+        u <- unique(data[[color]])
+        #color <- viridis::viridis(n = length(tokens))
+        pal <- substr(grDevices::rainbow(n = length(u)), 1, 7)
+        tmp <- character(nrow(data))
+        for (i in seq_along(u)) {
+            tmp[data[[color]] == u[i]] <- pal[i]
+        }
+        color <- tmp
+    }
     
     if (!is.null(bold)) {
         bold <- data[[bold]]
@@ -69,6 +88,8 @@ function(data,
         # apply them
         out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
         
+        # TODO: handle paragraphs!
+        
         if (!isTRUE(snippet)) {
             # put into complete document
             
@@ -84,6 +105,8 @@ function(data,
         
         # apply them
         out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
+        
+        # TODO: handle paragraphs!
         
         if (!isTRUE(snippet)) {
             # put into complete document
