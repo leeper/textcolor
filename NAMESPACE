@@ -2,6 +2,9 @@
 
 export(colorise)
 export(colorize)
+export(format_console)
+export(format_html)
+export(format_latex)
 import(crayon)
 import(stringi)
 import(viridis)

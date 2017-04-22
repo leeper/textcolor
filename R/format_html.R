@@ -1,9 +1,24 @@
-# construct a set of opening and closing tags based upon requested formatting
+#' @rdname format
+#' @title Replacement formatters
+#' @description Construct a list of replacement formatting for a given markup format
+#' @param color A vector of text colors
+#' @param background A vector of background colors
+#' @param bold A logical vector
+#' @param italic A logical vector
+#' @param underline A logical vector
+#' @return A length-2 list
+#' @examples
+#' # html
+#' format_html(color = c("black", "red", "green"))
+#' # latex
+#' format_latex(background = c("black", "red", "green"))
+#'
+#' @export
 format_html <- 
 function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline = NULL) {
     
-    out_open <- rep('<span style="', length(background))
-    out_close <- rep("</span>", length(background))
+    out_open <- rep('<span style="', pmax(length(background), length(color)))
+    out_close <- rep("</span>", pmax(length(background), length(color)))
     
     # in the below, create classes that intersect the various forms of formatting
     if (!is.null(color)) {

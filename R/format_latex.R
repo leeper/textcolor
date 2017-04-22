@@ -1,8 +1,9 @@
-# construct a set of opening and closing tags based upon requested formatting
+#' @rdname format
+#' @export
 format_latex <- 
 function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline = NULL) {
-    out_open <- character(length(color))
-    out_close <- character(length(color))
+    out_open <- character(pmax(length(background), length(color)))
+    out_close <- character(pmax(length(background), length(color)))
     
     if (!is.null(color)) {
         out_open <- paste0(out_open, "\\textcolor{", color,"}{")

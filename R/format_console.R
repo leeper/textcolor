@@ -1,4 +1,5 @@
-# construct a set of opening and closing tags based upon requested formatting
+#' @rdname format
+#' @export
 format_console <- function(color = NULL, background = NULL, bold = NULL, italic = NULL, underline = NULL) {
     
 }

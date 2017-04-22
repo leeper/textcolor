@@ -13,8 +13,6 @@
 #' @param size A character string specifying a variable name from \code{data} to be used in dictating the fotn size of the text.
 #' @param format A character string specifying an output format.
 #' @param snippet A logical indicating whether to provide just a code snippet (the default) or a complete document.
-#' @param color_palette A color palette to use in colorization.
-#' @param background_palette A color palette to use in colorization.
 #' @param \dots TBD
 #' @details
 #' LaTeX support requires the \samp{xcolor} package in the document header.
@@ -66,8 +64,6 @@ function(data,
     if (format == "html") {
         # make open/close formats
         
-        ## TODO: colors are html colors!!!
-        
         fmt <- format_html(color = color, background = background, bold = bold, italic = italic, underline = underline)
         
         # apply them
@@ -80,8 +76,12 @@ function(data,
         
     } else if (format == "latex") {
         # make open/close formats
+        
+        ## TODO: colors are html colors!!!
+        
         fmt <- format_latex(color = color, background = background, bold = bold, italic = italic, underline = underline)
         #print(fmt)
+        
         # apply them
         out <- apply_formatting(source, tokens, replacement = paste0(fmt$open, tokens, fmt$close))
         

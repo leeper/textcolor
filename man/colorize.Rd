@@ -39,10 +39,6 @@ colorise(data, tokens, source, background = NULL, color = NULL,
 \item{font}{A character string specifying a variable name from \code{data} to be used in dictating the font face/family of the text.}
 
 \item{size}{A character string specifying a variable name from \code{data} to be used in dictating the fotn size of the text.}
-
-\item{color_palette}{A color palette to use in colorization.}
-
-\item{background_palette}{A color palette to use in colorization.}
 }
 \description{
 Summarize a text model by visualizing a source text
